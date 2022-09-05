@@ -30,4 +30,29 @@ app.get('/api/notes', (req, res) => {
   console.info(`${req.method} request received to get notes`);
 });
 
-
+app.post('/api/notes', (req, res) => {
+    console.info(`${req.method} request received to add a note`);
+  
+    const { title, text } = req.body;
+  
+    if (title && text) {
+      const newNote = {
+        title,
+        text,
+        id: uuid(),
+      };
+  
+      noteData.push(newNote);
+      fs.writeFile(
+        './db/db.json',
+        JSON.stringify(noteData),
+        (writeErr) =>
+          writeErr
+            ? console.error(writeErr)
+            : console.info('Successfully updated notes!')
+      );
+  
+      res.send(noteData);
+      
+    }
+  });

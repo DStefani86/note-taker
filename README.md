@@ -2,7 +2,9 @@
 
 ## Deployed Links
 
+[Heroku]https://dstefani-note-taker.herokuapp.com/
 
+[GitHub]https://dstefani86.github.io/note-taker/
 
 ## Table of Contents
 
